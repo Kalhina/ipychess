@@ -8,6 +8,6 @@ def _jupyter_nbextension_paths():
     return [{
         'section': 'notebook',
         'src': 'nbextension/static',
-        'dest': 'ipychessground',
-        'require': 'ipychessground/extension'
+        'dest': 'ipychess',
+        'require': 'ipychess/extension'
     }]

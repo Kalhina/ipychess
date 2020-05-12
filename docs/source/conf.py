@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# ipychessground documentation build configuration file
+# ipychess documentation build configuration file
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -54,7 +54,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'ipychessground'
+project = 'ipychess'
 copyright = '2020, uribalb'
 author = 'uribalb'
 
@@ -69,7 +69,7 @@ author = 'uribalb'
 import os
 here = os.path.dirname(__file__)
 repo = os.path.join(here, '..', '..')
-_version_py = os.path.join(repo, 'ipychessground', '_version.py')
+_version_py = os.path.join(repo, 'ipychess', '_version.py')
 version_ns = {}
 with open(_version_py) as f:
     exec(f.read(), version_ns)
@@ -116,7 +116,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ipychessgrounddoc'
+htmlhelp_basename = 'ipychessdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -143,7 +143,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ipychessground.tex', 'ipychessground Documentation',
+    (master_doc, 'ipychess.tex', 'ipychess Documentation',
      'uribalb', 'manual'),
 ]
 
@@ -154,8 +154,8 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc,
-    'ipychessground',
-    'ipychessground Documentation',
+    'ipychess',
+    'ipychess Documentation',
      [author], 1)
 ]
 
@@ -167,10 +167,10 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc,
-     'ipychessground',
-     'ipychessground Documentation',
+     'ipychess',
+     'ipychess Documentation',
      author,
-     'ipychessground',
+     'ipychess',
      'A Custom Jupyter Widget Library',
      'Miscellaneous'),
 ]

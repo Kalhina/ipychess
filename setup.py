@@ -19,7 +19,7 @@ from setuptools import setup
 
 
 # The name of the project
-name = 'ipychessground'
+name = 'ipychess'
 
 # Ensure a valid python version
 ensure_python('>=3.4')
@@ -44,10 +44,10 @@ package_data_spec = {
 }
 
 data_files_spec = [
-    ('share/jupyter/nbextensions/ipychessground',
+    ('share/jupyter/nbextensions/ipychess',
         nb_path, '*.js*'),
     ('share/jupyter/lab/extensions', lab_path, '*.tgz'),
-    ('etc/jupyter/nbconfig/notebook.d' , HERE, 'ipychessground.json')
+    ('etc/jupyter/nbconfig/notebook.d' , HERE, 'ipychess.json')
 ]
 
 
@@ -68,7 +68,7 @@ setup_args = dict(
     packages        = find_packages(),
     author          = 'uribalb',
     author_email    = 'landrybete.at.gmail.com',
-    url             = 'https://github.com/kalhina/ipychessground',
+    url             = 'https://github.com/kalhina/ipychess',
     license         = 'BSD',
     platforms       = "Linux, Mac OS X, Windows",
     keywords        = ['Jupyter', 'Widgets', 'IPython'],

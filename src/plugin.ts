@@ -19,7 +19,7 @@ import {
   MODULE_NAME, MODULE_VERSION
 } from './version';
 
-const EXTENSION_ID = 'jupyter-chessground:plugin';
+const EXTENSION_ID = 'ipychess:plugin';
 
 /**
  * The example plugin.

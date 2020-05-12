@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=source
 set BUILDDIR=build
-set SPHINXPROJ=ipychessground
+set SPHINXPROJ=ipychess
 
 if "%1" == "" goto help
 

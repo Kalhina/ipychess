@@ -145,13 +145,13 @@ $RECYCLE.BIN/
 # ----
 
 **/node_modules/
-ipychessground/nbextension/static/index.*
-ipychessground/labextension/*.tgz
+ipychess/nbextension/static/index.*
+ipychess/labextension/*.tgz
 
 # Coverage data
 # -------------
 **/coverage/
 
 # Packed lab extensions
-ipychessground/labextension
+ipychess/labextension
 .vscode/tasks.json

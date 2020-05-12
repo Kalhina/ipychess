@@ -1,2 +1,2 @@
 [run]
-omit = ipychessground/tests/*
+omit = ipychess/tests/*

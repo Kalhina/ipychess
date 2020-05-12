@@ -1,5 +1,5 @@
 {
-  "name": "jupyter-chessground",
+  "name": "ipychess",
   "version": "0.1.0",
   "description": "Interactive Chessground widget for the Jupyter notebook",
   "keywords": [
@@ -13,9 +13,9 @@
     "dist/*.js",
     "css/*.css"
   ],
-  "homepage": "https://github.com/kalhina/ipychessground",
+  "homepage": "https://github.com/kalhina/ipychess",
   "bugs": {
-    "url": "https://github.com/kalhina/ipychessground/issues"
+    "url": "https://github.com/kalhina/ipychess/issues"
   },
   "license": "BSD-3-Clause",
   "author": {
@@ -26,18 +26,18 @@
   "types": "./lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kalhina/ipychessground"
+    "url": "https://github.com/kalhina/ipychess"
   },
   "scripts": {
     "build": "npm run build:lib && npm run build:nbextension",
-    "build:labextension": "npm run clean:labextension && mkdirp ipychessground/labextension && cd ipychessground/labextension && npm pack ../..",
+    "build:labextension": "npm run clean:labextension && mkdirp ipychess/labextension && cd ipychess/labextension && npm pack ../..",
     "build:lib": "tsc",
     "build:nbextension": "webpack -p",
     "build:all": "npm run build:labextension && npm run build:nbextension",
     "clean": "npm run clean:lib && npm run clean:nbextension",
     "clean:lib": "rimraf lib",
-    "clean:labextension": "rimraf ipychessground/labextension",
-    "clean:nbextension": "rimraf ipychessground/nbextension/static/index.js",
+    "clean:labextension": "rimraf ipychess/labextension",
+    "clean:nbextension": "rimraf ipychess/nbextension/static/index.js",
     "prepack": "npm run build:lib",
     "test": "npm run test:firefox",
     "test:chrome": "karma start --browsers=Chrome tests/karma.conf.js",

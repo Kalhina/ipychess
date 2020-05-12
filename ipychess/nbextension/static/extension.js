@@ -6,7 +6,7 @@ define(function() {
     window['requirejs'].config({
         map: {
             '*': {
-                'jupyter-chessground': 'nbextensions/ipychessground/index',
+                'ipychess': 'nbextensions/ipychess/index',
             },
         }
     });

@@ -5,27 +5,27 @@ Installation
 ============
 
 
-The simplest way to install ipychessground is via pip::
+The simplest way to install ipychess is via pip::
 
-    pip install ipychessground
+    pip install ipychess
 
 or via conda::
 
-    conda install ipychessground
+    conda install ipychess
 
 
 If you installed via pip, and notebook version < 5.3, you will also have to
 install / configure the front-end extension as well. If you are using classic
 notebook (as opposed to Jupyterlab), run::
 
-    jupyter nbextension install [--sys-prefix / --user / --system] --py ipychessground
+    jupyter nbextension install [--sys-prefix / --user / --system] --py ipychess
 
-    jupyter nbextension enable [--sys-prefix / --user / --system] --py ipychessground
+    jupyter nbextension enable [--sys-prefix / --user / --system] --py ipychess
 
 with the `appropriate flag`_. If you are using Jupyterlab, install the extension
 with::
 
-    jupyter labextension install jupyter-chessground
+    jupyter labextension install ipychess
 
 If you are installing using conda, these commands should be unnecessary, but If
 you need to run them the commands should be the same (just make sure you choose the

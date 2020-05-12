@@ -27,7 +27,7 @@ module.exports = [
     entry: './src/extension.ts',
     output: {
       filename: 'index.js',
-      path: path.resolve(__dirname, 'ipychessground', 'nbextension', 'static'),
+      path: path.resolve(__dirname, 'ipychess', 'nbextension', 'static'),
       libraryTarget: 'amd'
     },
     module: {
@@ -39,7 +39,7 @@ module.exports = [
   },
 
   /**
-   * Embeddable jupyter-chessground bundle
+   * Embeddable ipychess bundle
    *
    * This bundle is almost identical to the notebook extension bundle. The only
    * difference is in the configuration of the webpack public path for the
@@ -54,8 +54,8 @@ module.exports = [
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'amd',
-        library: "jupyter-chessground",
-        publicPath: 'https://unpkg.com/jupyter-chessground@' + version + '/dist/'
+        library: "ipychess",
+        publicPath: 'https://unpkg.com/ipychess@' + version + '/dist/'
     },
     devtool: 'source-map',
     module: {
@@ -76,7 +76,7 @@ module.exports = [
     output: {
       filename: 'embed-bundle.js',
       path: path.resolve(__dirname, 'docs', 'source', '_static'),
-      library: "jupyter-chessground",
+      library: "ipychess",
       libraryTarget: 'amd'
     },
     module: {

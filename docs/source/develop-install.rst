@@ -3,11 +3,11 @@ Developer install
 =================
 
 
-To install a developer version of ipychessground, you will first need to clone
+To install a developer version of ipychess, you will first need to clone
 the repository::
 
-    git clone https://github.com/kalhina/ipychessground
-    cd ipychessground
+    git clone https://github.com/kalhina/ipychess
+    cd ipychess
 
 Next, install it with a develop install using pip::
 
@@ -17,9 +17,9 @@ Next, install it with a develop install using pip::
 If you are planning on working on the JS/frontend code, you should also do
 a link installation of the extension::
 
-    jupyter nbextension install [--sys-prefix / --user / --system] --symlink --py ipychessground
+    jupyter nbextension install [--sys-prefix / --user / --system] --symlink --py ipychess
 
-    jupyter nbextension enable [--sys-prefix / --user / --system] --py ipychessground
+    jupyter nbextension enable [--sys-prefix / --user / --system] --py ipychess
 
 with the `appropriate flag`_. Or, if you are using Jupyterlab::
 

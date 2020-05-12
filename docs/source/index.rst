@@ -1,5 +1,5 @@
 
-ipychessground
+ipychess
 =====================================
 
 Version: |release|
@@ -10,13 +10,13 @@ A Custom Jupyter Widget Library
 Quickstart
 ----------
 
-To get started with ipychessground, install with pip::
+To get started with ipychess, install with pip::
 
-    pip install ipychessground
+    pip install ipychess
 
 or with conda::
 
-    conda install ipychessground
+    conda install ipychess
 
 
 Contents
