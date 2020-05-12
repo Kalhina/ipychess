@@ -154,3 +154,4 @@ ipychessground/labextension/*.tgz
 
 # Packed lab extensions
 ipychessground/labextension
+.vscode/tasks.json
