@@ -53,6 +53,8 @@ class ExampleView extends DOMWidgetView {
   initialize() {
     // this.el.classList.remove('p-Widget');
     this.el.classList.add('brown', 'merida');
+    this.el.style.width = "500px"
+    this.el.style.height = "500px"
  
     this.board_container = document.createElement('div');
 
