@@ -4,9 +4,9 @@
   "description": "Interactive chessboard widget for the Jupyter notebook",
   "keywords": [
     "jupyter",
-    "jupyterlab",
-    "jupyterlab-extension",
-    "widgets"
+    "chessboard",
+    "ipywidgets",
+    "chess"
   ],
   "files": [
     "lib/**/*.js",
