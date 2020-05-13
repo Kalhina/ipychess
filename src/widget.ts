@@ -58,7 +58,8 @@ class ExampleView extends DOMWidgetView {
 
     this.el.appendChild(this.board_container)
 
-    document.addEventListener('scroll', (e)=>{document.body.dispatchEvent(new Event('chessground.resize')); console.log("scrolled!")}, true);
+    document.addEventListener('scroll', (e)=>{window.requestAnimationFrame(()=>{document.body.dispatchEvent(new Event('chessground.resize')); console.log("scrolled!")})}, true);
+    window.addEventListener('resize', (e)=>{window.requestAnimationFrame(()=>{document.body.dispatchEvent(new Event('chessground.resize')); console.log("resized!")})}, true);
 
     // window.onresize = ()=>{document.body.dispatchEvent(new Event('chessground.resize')); console.log("resized!")}
   }
@@ -104,9 +105,6 @@ class ExampleView extends DOMWidgetView {
       }
     this.obj.set(config)
     // this.obj = Chessground(this.board_container, config)
-
- 
-    console.log("hello")
    
   }
   update() {
