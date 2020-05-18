@@ -13,7 +13,7 @@ import {
   IJupyterWidgetRegistry
  } from '@jupyter-widgets/base';
 
-import * as widgetExports from './widget';
+import * as widgetExports from './Board';
 
 import {
   MODULE_NAME, MODULE_VERSION
@@ -22,9 +22,9 @@ import {
 const EXTENSION_ID = 'ipychess:plugin';
 
 /**
- * The example plugin.
+ * The board plugin.
  */
-const examplePlugin: IPlugin<Application<Widget>, void> = {
+const boardPlugin: IPlugin<Application<Widget>, void> = {
   id: EXTENSION_ID,
   requires: [IJupyterWidgetRegistry],
   activate: activateWidgetExtension,
@@ -32,7 +32,7 @@ const examplePlugin: IPlugin<Application<Widget>, void> = {
 } as unknown as IPlugin<Application<Widget>, void>;
 // the "as unknown as ..." typecast above is solely to support JupyterLab 1
 // and 2 in the same codebase and should be removed when we migrate to Lumino.
-export default examplePlugin;
+export default boardPlugin;
 
 
 /**

@@ -27,16 +27,16 @@ const config = new ConfigClass() as Config
 // configure(config, state)
 
 export
-class ExampleModel extends DOMWidgetModel {
+class BoardModel extends DOMWidgetModel {
   defaults() {
     return {...super.defaults(),
       // config:configure(),,
-      _model_name: ExampleModel.model_name,
-      _model_module: ExampleModel.model_module,
-      _model_module_version: ExampleModel.model_module_version,
-      _view_name: ExampleModel.view_name,
-      _view_module: ExampleModel.view_module,
-      _view_module_version: ExampleModel.view_module_version,
+      _model_name: BoardModel.model_name,
+      _model_module: BoardModel.model_module,
+      _model_module_version: BoardModel.model_module_version,
+      _view_name: BoardModel.view_name,
+      _view_module: BoardModel.view_module,
+      _view_module_version: BoardModel.view_module_version,
       options: [],
       ...config
     };
@@ -47,17 +47,17 @@ class ExampleModel extends DOMWidgetModel {
       // Add any extra serializers here
     }
 
-  static model_name = 'ExampleModel';
+  static model_name = 'BoardModel';
   static model_module = MODULE_NAME;
   static model_module_version = MODULE_VERSION;
-  static view_name = 'ExampleView';   // Set to null if no view
+  static view_name = 'BoardView';   // Set to null if no view
   static view_module = MODULE_NAME;   // Set to null if no view
   static view_module_version = MODULE_VERSION;
 }
 
 
 export
-class ExampleView extends DOMWidgetView {
+class BoardView extends DOMWidgetView {
   board_container: any; board:any;
   initialize() {
     // this.el.classList.remove('p-Widget');

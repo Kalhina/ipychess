@@ -6,9 +6,9 @@
 
 import pytest
 
-from ..example import ExampleWidget
+from ..board import Board
 
 
-def test_example_creation_blank():
-    w = ExampleWidget()
+def test_board_creation_blank():
+    w = Board()
     assert w.value == 'Hello World'
