@@ -14,7 +14,8 @@ import {Chessground} from 'chessground';
 
 import { Config} from 'chessground/config';
 
-
+import utils = require("./utils")
+const {camel_case} = utils
 
 // Import the CSS
 import '../css/widget.css'
@@ -84,22 +85,30 @@ class BoardView extends DOMWidgetView {
 
   }
   render_chessground() {
-    let config:any = {
-      fen: this.model.get('fen'),
-      orientation: 'white'
-      }
       
-    this.board = Chessground(this.board_container, config)
+    this.board = Chessground(this.board_container, this.get_options())
      
   }
   fen_changed() {
     // this.board_container.textContent = this.model.get('fen');
     let config:any = {
+      ...this.get_options(),
       fen: this.model.get('fen'),
       }
     this.board.set(config)   
   }
   update() {
      
+  }
+  get_options() {
+    let o = this.model.get('options');
+    let options = Object();
+    let key;
+    for (let i=0; i<o.length; i++) {
+      key = o[i];
+      // Convert from foo_bar to fooBar that Leaflet.js uses
+      options[camel_case(key)] = this.model.get(key);
+    }
+    return options;
   }
 }
