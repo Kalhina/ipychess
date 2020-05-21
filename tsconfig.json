@@ -11,12 +11,16 @@
     "resolveJsonModule": true,
     "rootDir": "src",
     "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "es2015"
+    "strictNullChecks": false,
+    "target": "es2017",
+    "types": ["mocha", "node"]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
   ]
 }
