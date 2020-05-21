@@ -9,29 +9,24 @@ import {
   MODULE_NAME, MODULE_VERSION
 } from './version';
 
-import {Chessground} from 'chessground';
-// import { State, defaults } from 'chessground/state';
+import { Chessground } from 'chessground';
+import { Config } from 'chessground/config';
 
-import { Config} from 'chessground/config';
-
-import utils = require("./utils")
-const {camel_case} = utils
+import { camel_case, debounce, emit_resize } from "./utils"
 
 // Import the CSS
 import '../css/widget.css'
 import '../css/chessground.css'
 import '../css/pieces.css'
 
-class ConfigClass implements Config {}
-// const state = defaults() as Config;
-const config = new ConfigClass() as Config
-// configure(config, state)
+class ConfigClass implements Config { }
+const config = new ConfigClass()
 
 export
-class BoardModel extends DOMWidgetModel {
+  class BoardModel extends DOMWidgetModel {
   defaults() {
-    return {...super.defaults(),
-      // config:configure(),,
+    return {
+      ...super.defaults(),
       _model_name: BoardModel.model_name,
       _model_module: BoardModel.model_module,
       _model_module_version: BoardModel.model_module_version,
@@ -44,9 +39,9 @@ class BoardModel extends DOMWidgetModel {
   }
 
   static serializers: ISerializers = {
-      ...DOMWidgetModel.serializers,
-      // Add any extra serializers here
-    }
+    ...DOMWidgetModel.serializers,
+    // Add any extra serializers here
+  }
 
   static model_name = 'BoardModel';
   static model_module = MODULE_NAME;
@@ -56,57 +51,46 @@ class BoardModel extends DOMWidgetModel {
   static view_module_version = MODULE_VERSION;
 }
 
-
 export
-class BoardView extends DOMWidgetView {
-  board_container: any; board:any;
+  class BoardView extends DOMWidgetView {
+  board_container: any; board: any;
   initialize() {
-    // this.el.classList.remove('p-Widget');
     this.el.classList.add('brown', 'merida');
     this.el.style.width = this.model.get('width')
     this.el.style.height = this.model.get('width')
- 
+
     this.board_container = document.createElement('div');
 
     this.el.appendChild(this.board_container)
     this.board_container.classList.add("jupyter-widgets");
 
-    document.addEventListener('scroll', (e)=>{window.requestAnimationFrame(()=>{document.body.dispatchEvent(new Event('chessground.resize')); console.log("scrolled!")})}, true);
-    window.addEventListener('resize', (e)=>{window.requestAnimationFrame(()=>{document.body.dispatchEvent(new Event('chessground.resize')); console.log("resized!")})}, true);
-
-    // window.onresize = ()=>{document.body.dispatchEvent(new Event('chessground.resize')); console.log("resized!")}
+    let scrollResizeHandler = debounce(emit_resize, 100)
+    document.body.addEventListener('scroll', scrollResizeHandler, true);
+    window.addEventListener('resize', scrollResizeHandler, true);
   }
   render() {
     super.render();
-    this.model.on('change:fen', this.fen_changed, this);
-    setTimeout(this.render_chessground.bind(this), 0)
-    console.log(this.model.get('fen'))
-
-
+    this.model.on_some_change(Object.keys(this.get_options()), this.options_changed, this);
+    requestAnimationFrame(this.render_chessground.bind(this))
   }
   render_chessground() {
-      
-    this.board = Chessground(this.board_container, this.get_options())
-     
-  }
-  fen_changed() {
-    // this.board_container.textContent = this.model.get('fen');
-    let config:any = {
+    let config: Config = {
       ...this.get_options(),
-      fen: this.model.get('fen'),
-      }
-    this.board.set(config)   
+      resizable: true,
+    }
+    this.board = Chessground(this.board_container, config)
+
   }
-  update() {
-     
+  options_changed() {
+    this.board.set(this.get_options())
   }
   get_options() {
     let o = this.model.get('options');
     let options = Object();
-    let key;
-    for (let i=0; i<o.length; i++) {
+    let key: string;
+    for (let i = 0; i < o.length; i++) {
       key = o[i];
-      // Convert from foo_bar to fooBar that Leaflet.js uses
+      // Convert from foo_bar to fooBar that Chessground.js uses
       options[camel_case(key)] = this.model.get(key);
     }
     return options;
