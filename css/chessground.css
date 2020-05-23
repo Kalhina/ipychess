@@ -124,7 +124,7 @@ cg-board piece.fading {
   opacity: 0.3;
 }
 .cg-wrap svg {
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   top: 0px;
   left: 0px;
@@ -134,8 +134,8 @@ cg-board piece.fading {
   z-index: 2;
   opacity: 0.6;
 }
-.cg-wrap svg image {
-  opacity: 0.5;
+.cg-wrap svg defs {
+  opacity: 0.9;
 }
 .cg-wrap coords {
   position: absolute;
