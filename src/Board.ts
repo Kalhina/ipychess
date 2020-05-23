@@ -85,14 +85,6 @@ export
     this.board.set(this.get_options())
   }
   get_options() {
-    let o = this.model.get('options');
-    let options = Object();
-    let key: string;
-    for (let i = 0; i < o.length; i++) {
-      key = o[i];
-      // Convert from foo_bar to fooBar that Chessground.js uses
-      options[camel_case(key)] = this.model.get(key);
-    }
-    return options;
+    return this.model.get('options').reduce((o: any, key: string) => ({ ...o, [camel_case(key)]: this.model.get(key)}), {})
   }
 }
