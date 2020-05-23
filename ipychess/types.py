@@ -16,7 +16,10 @@ class Role(CaselessStrEnum):
 
 class Key(CaselessStrEnum):
     def __init__(self):
-        self.values = list(map(lambda t: t[0] + str(t[1]), product(string.ascii_lowercase[:8], range(1,9))))
+        self.allow_none = True
+        self.default_value = None
+        self.values = list(
+            map(lambda t: t[0] + str(t[1]), product(string.ascii_lowercase[:8], range(1, 9))))
 
 
 class File(CaselessStrEnum):
