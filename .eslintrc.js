@@ -1,4 +1,7 @@
-module.exports = {
+export default {
+  parserOptions: {
+    project: 'tsconfig.json',
+  },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
@@ -23,6 +26,10 @@ module.exports = {
     ],
     curly: ['error', 'all'],
     eqeqeq: 'error',
-    'prefer-arrow-callback': 'error'
+    'prefer-arrow-callback': 'error',
+    'prettier/prettier': ['error', {
+    endOfLine: 'auto',
+  }],
   }
 };
+ 
